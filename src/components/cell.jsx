@@ -31,7 +31,7 @@ const Cell = ({id, cell, go, setGo, cells,setCells, WinningMessage}) => {
     })
             setCells(nexCell)
     }
-    console.log(cells);
+    // console.log(cells);
     
     return (
         <div className="square" id={id} onClick={handleClick}>
