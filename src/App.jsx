@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import Cell from './components/cell'
 
 const App = ()=> {
+  // this is where the game logic will be implemented that all empyty cells can be clicked and the winner will be declared.
 const [cells, setCells] = useState(["", "", "", "", "", "", "", "", ""])
 const [go, setGo] = useState("circle")
 const [WinningMessage, setWinningMessage] = useState("")
@@ -38,6 +39,7 @@ useEffect(() => {
   checkScore()
 },
 [cells])
+// this to reset the game when the game is over.
 const resetGame = () => {
   setCells(["", "", "", "", "", "", "", "", ""])
   setGo("circle")
@@ -45,28 +47,41 @@ const resetGame = () => {
 }
 const message = WinningMessage || `It's now ${go}'s turn.`
 return (
-    <>
-    <div className='app'>
-      <div className='gameboard'>
-        {cells.map ((cell, index) => <Cell 
-        key={index}
-        id={index}
-        cell={cell}
-        go={go}
-        setGo={setGo}
-        cells={cells}
-        setCells={setCells}
-        WinningMessage={WinningMessage}
-        />)}
-      </div>
-      <p>{message}</p>
-        <button className="reset-button" onClick={resetGame}>
-          Reset Game
-        </button>
+  <>
+  <div className='app'>
+    <div className='gameboard'>
+      {cells.map((cell, index) => (
+        <Cell
+          key={index}
+          id={index}
+          cell={cell}
+          go={go}
+          setGo={setGo}
+          cells={cells}
+          setCells={setCells}
+          WinningMessage={WinningMessage}
+        />
+      ))}
     </div>
-     
-    </>
-  )
+    <p>{message}</p>
+    
+    {/* Reset button, now styled with a higher z-index  */}
+    <button className="reset-button" onClick={resetGame}>
+      Reset Game
+    </button>
+    
+    {/* overlay div to show the winner message */}
+    {WinningMessage && (
+      <div className="overlay">
+        <div className="overlay-message">
+          {WinningMessage}
+        </div>
+      </div>
+    )}
+  </div>
+  </>
+);
+
 }
 
 export default App
