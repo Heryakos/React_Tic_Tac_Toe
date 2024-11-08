@@ -1,205 +1,202 @@
 /* Reset some basic styling */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f3f4f6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .app {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
 .gameboard {
-    width: 450px; /* this is the width of the gameboard */
-    height: 450px; /*this is the height of the gameboard */
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    gap: 5px;
-    background-color: #333;
-    padding: 5px;
-    border-radius: 10px;
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  width: 450px; /* this is the width of the gameboard */
+  height: 450px; /*this is the height of the gameboard */
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 5px;
+  background-color: #333;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
 }
 
-
 .square {
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .square:hover {
-    background-color: #e5e7eb;
+  background-color: #e5e7eb;
 }
 
 /* Circle Style */
 .circle {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-    border: 12px solid #1e3a8a;
-    animation: drawCircle 0.3s ease-out;
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  border: 12px solid #1e3a8a;
+  animation: drawCircle 0.3s ease-out;
 }
 
 @keyframes drawCircle {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
 }
 
 /* Cross Style */
 .cross {
-    width: 80px;
-    height: 80px;
-    position: relative;
+  width: 80px;
+  height: 80px;
+  position: relative;
 }
 
-.cross:before, .cross:after {
-    content: "";
-    position: absolute;
-    background-color: #b91c1c;
-    width: 12px;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%) rotate(45deg);
-    border-radius: 4px;
+.cross:before,
+.cross:after {
+  content: "";
+  position: absolute;
+  background-color: #b91c1c;
+  width: 12px;
+  height: 100%;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  border-radius: 4px;
 }
 
 .cross:after {
-    transform: translateX(-50%) rotate(-45deg);
+  transform: translateX(-50%) rotate(-45deg);
 }
 
-
 @keyframes drawCross {
-    from {
-        transform: scale(0) rotate(45deg);
-    }
-    to {
-        transform: scale(1) rotate(45deg);
-    }
+  from {
+    transform: scale(0) rotate(45deg);
+  }
+  to {
+    transform: scale(1) rotate(45deg);
+  }
 }
 
 /* Winning Message */
 p {
-    margin-top: 20px;
-    font-size: 1.2rem;
-    color: #111827;
-    font-weight: bold;
-    animation: fadeIn 0.5s ease-out;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  color: #111827;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease-out;
 }
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .reset-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #1e40af;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1e40af;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .reset-button:hover {
-    background-color: #1d4ed8;
+  background-color: #1d4ed8;
 }
 /* Adjust the overlay to be less intrusive */
 .overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    font-size: 2rem;
-    font-weight: bold;
-    text-align: center;
-    opacity: 0;
-    animation: fadeInOverlay 0.2s forwards;
-    z-index: 10;  /* Lower z-index */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInOverlay 0.2s forwards;
+  z-index: 10; /* Lower z-index */
 }
 
 /* Winning Message Overlay */
 .overlay-message {
-    background: rgba(30, 64, 175, 0.9);
-    padding: 20px 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
-    transform: scale(0.5);
-    animation: popUp 0.5s 0.3s forwards;
+  background: rgba(30, 64, 175, 0.9);
+  padding: 20px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transform: scale(0.5);
+  animation: popUp 0.5s 0.3s forwards;
 }
 
 /* Ensure the Reset button is always above the overlay */
 .reset-button {
-    position: relative;
-    z-index: 20;  /* Higher z-index than the overlay */
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: #ffffff;
-    background-color: #1e40af;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+  position: relative;
+  z-index: 20; /* Higher z-index than the overlay */
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  color: #ffffff;
+  background-color: #1e40af;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .reset-button:hover {
-    background-color: #1d4ed8;
+  background-color: #1d4ed8;
 }
 
-
 @keyframes fadeInOverlay {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes popUp {
-    from {
-        transform: scale(0.5);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
 }
-
